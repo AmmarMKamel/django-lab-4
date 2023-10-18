@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Trainees
+{% endblock %}
+
+{% block content %}
+    <main id="main" data-aos="fade-in">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <h2>Trainees</h2>
+                <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas
+                    sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+            </div>
+        </div><!-- End Breadcrumbs -->
+
+        <!-- ======= Trainers Section ======= -->
+        <div class="container">
+            <div class="row">
+                <form method="post" class="col-6 offset-3 my-5">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Add New Trainee" class="btn btn-primary">
+                </form>
+                {% if errors %}
+                    {% for error in errors %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </main><!-- End #main -->
+{% endblock %}
